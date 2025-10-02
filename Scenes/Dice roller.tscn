@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://blk50tccy0vim"]
+
+[ext_resource type="Script" uid="uid://cf04uqvd4dxx2" path="res://Scripts/Dice_ruler.gd" id="1_w2dk2"]
+[ext_resource type="Shader" uid="uid://cd47pab0pw8im" path="res://Main.gdshader" id="2_gqhvs"]
+[ext_resource type="AudioStream" uid="uid://wi8e8in2bndg" path="res://Assets/Audio/sci-fi-ambient-music-183269.mp3" id="3_wndgm"]
+[ext_resource type="Script" uid="uid://dqrb8riskda6t" path="res://Scripts/Dice Spawn Handler Script.gd" id="4_gqhvs"]
+[ext_resource type="Script" uid="uid://clkk3cb3usc38" path="res://Scripts/Dice Button Toggle Group Script.gd" id="4_wndgm"]
+[ext_resource type="Script" uid="uid://brfwlnyvbojfe" path="res://Scripts/SceneSwap.gd" id="6_qugh0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0hol4"]
+shader = ExtResource("2_gqhvs")
+shader_parameter/galaxy_color_1 = Color(0.1, 0.05, 0.3, 1)
+shader_parameter/galaxy_color_2 = Color(0.3, 0.1, 0.5, 1)
+shader_parameter/galaxy_color_3 = Color(0.05, 0.15, 0.4, 1)
+shader_parameter/star_color = Color(1, 0.95, 0.9, 1)
+shader_parameter/speed = 0.3
+
+[node name="Dice roller" type="Node2D"]
+script = ExtResource("1_w2dk2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_0hol4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SciFiAmbientMusic183269" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("3_wndgm")
+autoplay = true
+bus = &"Music"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Selector container" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+script = ExtResource("4_wndgm")
+
+[node name="D4Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/Selector container"]
+layout_mode = 2
+toggle_mode = true
+text = "D4"
+
+[node name="D6Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/Selector container"]
+layout_mode = 2
+toggle_mode = true
+text = "D6"
+
+[node name="D8Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/Selector container"]
+layout_mode = 2
+toggle_mode = true
+text = "D8"
+
+[node name="D10Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/Selector container"]
+layout_mode = 2
+toggle_mode = true
+text = "D10"
+
+[node name="D12Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/Selector container"]
+layout_mode = 2
+toggle_mode = true
+text = "D12"
+
+[node name="20Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/Selector container"]
+layout_mode = 2
+toggle_mode = true
+text = "D20
+"
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/Selector container"]
+layout_mode = 2
+text = "Number of dice:"
+
+[node name="SpinBox" type="SpinBox" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/Selector container"]
+layout_mode = 2
+
+[node name="Spawn Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/Selector container"]
+layout_mode = 2
+text = "Spawn dice"
+
+[node name="RollButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/Selector container"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ROLL"
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("4_gqhvs")
+d4_scene = "uid://bjtw05gvjwflx"
+d6_scene = "uid://cd3dda228kuw3"
+d8_scene = "uid://btb78h6fnyfw6"
+d10_scene = "uid://cxjn4m8bfjvfp"
+d12_scene = "uid://dp5dbov2cmmvv"
+d20_scene = "uid://yr7jaouvloh1"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer2"]
+custom_minimum_size = Vector2(400, 480.33)
+layout_mode = 2
+
+[node name="DiceHolder" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer2/ScrollContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 350
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 350
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Back"
+script = ExtResource("6_qugh0")
+target_scene = "uid://bcaj7rk3d4n26"
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/Selector container/RollButton" to="." method="_on_button_pressed"]

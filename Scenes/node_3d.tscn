@@ -1,0 +1,134 @@
+[gd_scene load_steps=12 format=3 uid="uid://d14x0s3jei3l1"]
+
+[ext_resource type="Script" uid="uid://cku227wdan8vt" path="res://dies.gd" id="1_a0tk4"]
+[ext_resource type="Texture2D" uid="uid://kglygv4diwt6" path="res://icon.svg" id="1_a202f"]
+[ext_resource type="PackedScene" uid="uid://bbevpvrnb8u31" path="res://d_6.tscn" id="2_noarx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a202f"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_noarx"]
+sky_material = SubResource("ProceduralSkyMaterial_a202f")
+
+[sub_resource type="Environment" id="Environment_a0tk4"]
+background_mode = 2
+sky = SubResource("Sky_noarx")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_noarx"]
+size = Vector3(33.1494, 0.001, 39.499146)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a202f"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noarx"]
+albedo_texture = ExtResource("1_a202f")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a202f"]
+size = Vector3(4.6152267, 9.288586, 39.499146)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
+size = Vector3(31.093258, 9.288586, 1.4038696)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_a0tk4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a0tk4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6409297, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.507225, -0.4995, -5.1814575)
+shape = SubResource("BoxShape3D_noarx")
+
+[node name="Decal" type="Decal" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037705064, -0.06688285, 0.65022457)
+size = Vector3(7.1735744, 0.001, 6.995449)
+texture_albedo = ExtResource("1_a202f")
+texture_normal = ExtResource("1_a202f")
+texture_orm = ExtResource("1_a202f")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 12.318964, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.200807, 0)
+mesh = SubResource("PlaneMesh_a202f")
+surface_material_override/0 = SubResource("StandardMaterial3D_noarx")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57168865, -1.4416685, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.759861, 4.1442933, -5.1814575)
+shape = SubResource("BoxShape3D_a202f")
+
+[node name="Decal" type="Decal" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037705064, -0.06688285, 0.65022457)
+size = Vector3(7.1735744, 0.001, 6.995449)
+texture_albedo = ExtResource("1_a202f")
+texture_normal = ExtResource("1_a202f")
+texture_orm = ExtResource("1_a202f")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.893028, 0.013692856, 0.86411)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.759861, 4.1442933, -5.1814575)
+shape = SubResource("BoxShape3D_a202f")
+
+[node name="Decal" type="Decal" parent="StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037705064, -0.06688285, 0.65022457)
+size = Vector3(7.1735744, 0.001, 6.995449)
+texture_albedo = ExtResource("1_a202f")
+texture_normal = ExtResource("1_a202f")
+texture_orm = ExtResource("1_a202f")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.586805, 0, -3.7898216)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.998877, 4.1442933, 13.86618)
+shape = SubResource("BoxShape3D_a0tk4")
+
+[node name="Decal" type="Decal" parent="StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037705064, -0.06688285, 0.65022457)
+size = Vector3(7.1735744, 0.001, 6.995449)
+texture_albedo = ExtResource("1_a202f")
+texture_normal = ExtResource("1_a202f")
+texture_orm = ExtResource("1_a202f")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.586805, 0, -22.454708)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.998877, 4.1442933, 13.86618)
+shape = SubResource("BoxShape3D_a0tk4")
+
+[node name="Decal" type="Decal" parent="StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037705064, -0.06688285, 0.65022457)
+size = Vector3(7.1735744, 0.001, 6.995449)
+texture_albedo = ExtResource("1_a202f")
+texture_normal = ExtResource("1_a202f")
+texture_orm = ExtResource("1_a202f")
+
+[node name="D6" parent="." instance=ExtResource("2_noarx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3304706, 0)
+
+[node name="Result" type="Label" parent="."]
+z_index = 8
+offset_left = 183.20624
+offset_top = 285.07004
+offset_right = 223.20624
+offset_bottom = 308.07004
+text = "no"
+
+[connection signal="roll_finished" from="D6" to="." method="_on_d_6_roll_finished"]

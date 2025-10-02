@@ -1,0 +1,140 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcaj7rk3d4n26"]
+
+[ext_resource type="AudioStream" uid="uid://65yhr14g7vcq" path="res://Assets/Audio/space-ambient-351305.mp3" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://b28uc3o64miqw" path="res://Scripts/Main.gd" id="1_pbw6q"]
+[ext_resource type="Shader" uid="uid://cd47pab0pw8im" path="res://Main.gdshader" id="1_uu6xs"]
+[ext_resource type="Script" uid="uid://brfwlnyvbojfe" path="res://Scripts/SceneSwap.gd" id="3_v1gob"]
+[ext_resource type="Script" uid="uid://c3pukfxpvnn0u" path="res://Scripts/exit.gd" id="4_pbw6q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0du0"]
+shader = ExtResource("1_uu6xs")
+shader_parameter/galaxy_color_1 = Color(0.1, 0.05, 0.3, 1)
+shader_parameter/galaxy_color_2 = Color(0.3, 0.1, 0.5, 1)
+shader_parameter/galaxy_color_3 = Color(0.05, 0.15, 0.4, 1)
+shader_parameter/star_color = Color(1, 0.95, 0.9, 1)
+shader_parameter/speed = 0.3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxg2q"]
+bg_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pbw6q")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_r0du0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxg2q")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 17
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "DM's Grimoire"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 365
+theme_override_constants/margin_right = 365
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Initiative  Tracker" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Initiative Tracker"
+script = ExtResource("3_v1gob")
+
+[node name="Dice Roller" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Dice Roller"
+script = ExtResource("3_v1gob")
+target_scene = "uid://blk50tccy0vim"
+
+[node name="NPC Generator" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "NPC & Creature Creator"
+script = ExtResource("3_v1gob")
+
+[node name="Loot Generator" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Loot Generator"
+script = ExtResource("3_v1gob")
+
+[node name="Random Tables" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Random Tables"
+script = ExtResource("3_v1gob")
+
+[node name="Logbook" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Logbook"
+script = ExtResource("3_v1gob")
+
+[node name="Stopwatch" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Stopwatch"
+script = ExtResource("3_v1gob")
+
+[node name="Export_Import" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Export/Import"
+script = ExtResource("3_v1gob")
+
+[node name="Custom Table Builder" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Custom Table Builder"
+script = ExtResource("3_v1gob")
+
+[node name="Settings" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+script = ExtResource("3_v1gob")
+target_scene = "uid://cji5sy5sr52fc"
+
+[node name="Exit" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+script = ExtResource("4_pbw6q")
+
+[node name="SpaceAmbient351305" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(517, 443)
+stream = ExtResource("1_glv2v")
+autoplay = true
+bus = &"Music"

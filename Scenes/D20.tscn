@@ -1,0 +1,109 @@
+[gd_scene load_steps=3 format=3 uid="uid://yr7jaouvloh1"]
+
+[ext_resource type="PackedScene" uid="uid://bc16piy43ogx0" path="res://Assets/D20.glb" id="1_8ep3k"]
+[ext_resource type="Script" uid="uid://finpo6djgfbn" path="res://Scripts/D20.gd" id="1_uslt8"]
+
+[node name="D20" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uslt8")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 186.0
+offset_bottom = 212.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="PanelContainer/VBoxContainer/SubViewportContainer"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(186, 185)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport"]
+fov = 37.6
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport"]
+
+[node name="D20" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_8ep3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2485878)
+
+[node name="Side20" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41725063, 0.28828233, -0.60691)
+
+[node name="Side19" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15931416, -0.47794163, 0.6296694)
+
+[node name="Side18" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5310461, -0.01517266, -0.61449623)
+
+[node name="Side17" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1517275, 0.49311453, 0.644842)
+
+[node name="Side16" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77381045, -0.0075863004, 0.19724548)
+
+[node name="Side15" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6400394, 0.4393649, 0.21783775)
+
+[node name="Side14" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37931913, -0.29586864, -0.6372559)
+
+[node name="Side13" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.644841, -0.44000974, 0.18965912)
+
+[node name="Side12" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28204197, 0.7081195, -0.2124191)
+
+[node name="Side11" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2265709, -0.7430756, -0.2124191)
+
+[node name="Side10" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24241322, 0.72581697, 0.20347208)
+
+[node name="Side9" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24241322, -0.7253783, 0.20347208)
+
+[node name="Side8" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64945596, 0.4692031, -0.2212683)
+
+[node name="Side7" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40284294, 0.28337944, 0.6193632)
+
+[node name="Side6" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6179585, -0.45106685, -0.24783933)
+
+[node name="Side5" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7789703, 0.0012687445, -0.24783933)
+
+[node name="Side4" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13301522, -0.4989946, -0.6126114)
+
+[node name="Side3" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5269336, 0.03477174, 0.61706764)
+
+[node name="Side2" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12736654, 0.47741705, -0.6419171)
+
+[node name="Side1" type="Node3D" parent="PanelContainer/VBoxContainer/SubViewportContainer/SubViewport/D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41655707, -0.30828738, 0.6267061)
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
